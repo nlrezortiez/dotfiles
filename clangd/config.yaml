@@ -1,0 +1,27 @@
+If:
+  PathMatch: [.*\.cpp, .*\.cc]
+
+CompileFlags:
+  Add: [-std=c++20, -Wall, -xc++, -stdlib=libc++]
+  Compiler: clang++
+
+Diagnostics:
+  UnusedIncludes: Strict
+  ClangTidy:
+    Add: [performance*, modernize*, readability*]
+    Remove: [modernize-use-trailing-return-type, readability-identifier-length, readability-magic-numbers]
+
+Hover:
+  ShowAKA: Yes
+
+InlayHints:
+  Enabled: No
+
+---
+
+If:
+  PathMatch: .*\.c
+
+CompileFlags:
+  Add: [-std=c17, -Wall]
+  Compiler: gcc
